@@ -681,3 +681,11 @@ void test_reduce_returns_y_for_largerChar_with_following_array() {
 	result = reduceChar(&arr,length,largeChar,'y');
 	assertEqual(result,'y');
 }
+
+void test_jsMapStrig_returns_result_array(){
+	char *a[] = {"prasenjit","chakraborty"},**output,*w[]={"PRASENJIT","CHAKRABORTY"};
+	output = jsMapStrig(a,2,lowerCaseToUpperCase);
+	assert(strcmp(output[0],w[0])==0);
+	assert(strcmp(output[1],w[1])==0);
+}
+

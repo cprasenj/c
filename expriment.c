@@ -229,9 +229,18 @@ int indexOf(char *string,char c){
 	return position;
 }
 
-// char **jsMapStrig(char **arr,int length,char *(*f)(char *stringList));
-
-
+char **jsMapStrig(char **arr,int length,char (*f)(char)) {
+		int i,j;
+	char **str;
+	str = (char*)malloc(length*sizeof(char*));
+	for(i=0;i<length;i++) {
+		str[i] = (char*)malloc(sizeof(char));
+		for(j=0;arr[i][j]!='\0';j++){
+			str[i][j] = lowerCaseToUpperCase(arr[i][j]);
+		}
+	}
+	return str;
+}
 
 
 
