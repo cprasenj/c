@@ -5,16 +5,15 @@
 
 void myFor(int round,int (*f)(int e1,int e2),int val1){
 	int i;
-	for(i = 1;i <= round;i++){
+	for(i = 0;i < round;i++){
 		(*f)(val1,i);
 	}
 }
 
 int parseInt(char *string) {
-	int i,intVal,result = 0,flag = 0,dec = 0;
+	int i,result = 0,flag = 0,dec = 0;
 	for(i=0;string[i] >= '0' && string[i] <= '9';++i){
-		intVal = string[i] - '0';
-		result = result * 10 + intVal;
+		result = result * 10 + string[i] - '0';
 	}
 	return result;
 }
@@ -43,24 +42,6 @@ int reverse(int *array,int length) {
 		array[length-i-1] = tmp;
 	}
 	return (length <= 0) ? 0 : 420;
-}
-
-int filter(int *array,int length,int threshold,int **result_arr) {
-	int i,count=0;
-	for(i = 0;i < length;i++) {
-		if(array[i] >= threshold){
-			count++;
-		}
-	}
-	*result_arr = (int*)malloc(count*sizeof(int));
-	count = 0;
-	for(i = 0;i<length;i++) {
-		if(array[i] >= threshold){
-			(*result_arr)[count] = array[i];
-			count++;
-		}
-	}
-	return (length<=0||count==0) ? 0 : count;
 }
 
 int createReverse(int *array,int length,int *result){
@@ -127,7 +108,6 @@ char lowerCaseToUpperCase(char a) {
 	return a-32;
 }
 
-
 int predicate(int given,int threshold) {
 	return (given<threshold) ? 0 : 1;
 }
@@ -177,6 +157,7 @@ int jsFilterChar(char *arr, int length, int (*f)(char,char), char **result,char 
 
 }
 
+
 int *jsMapInt(int *arr,int length,int (*f)(int)) {
 	int *result,i;
 	result = (int *)malloc(length*sizeof(int));
@@ -196,6 +177,18 @@ int *jsMapChar(char *arr,int length,char (*f)(char)) {
 	return (length<=0) ? 0 : result;
 }
 
+char **jsMapStrig(char **arr,int length,char (*f)(char)) {
+		int i,j;
+	char **str;
+	str = (char*)malloc(length*sizeof(char*));
+	for(i=0;i<length;i++) {
+		str[i] = (char*)malloc(sizeof(char));
+		for(j=0;arr[i][j]!='\0';j++){
+			str[i][j] = lowerCaseToUpperCase(arr[i][j]);
+		}
+	}
+	return str;
+}
 
 char largeChar(char a,char b) {
 	return (a-b>0) ? a : b;
@@ -229,18 +222,6 @@ int indexOf(char *string,char c){
 	return position;
 }
 
-char **jsMapStrig(char **arr,int length,char (*f)(char)) {
-		int i,j;
-	char **str;
-	str = (char*)malloc(length*sizeof(char*));
-	for(i=0;i<length;i++) {
-		str[i] = (char*)malloc(sizeof(char));
-		for(j=0;arr[i][j]!='\0';j++){
-			str[i][j] = lowerCaseToUpperCase(arr[i][j]);
-		}
-	}
-	return str;
-}
 
 
 

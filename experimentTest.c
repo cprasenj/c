@@ -185,52 +185,6 @@ void test_reverse_arr_of_size_0() {
 	assert(x == 0);
 }
 
-void test_filter_arr_of_different_values(){
-	int *arr,x,length=5,*result;
-	arr = (int*)malloc(length*sizeof(int));
-	arr[0] = 6;
-	arr[1] = 1;
-	arr[2] = -9;
-	arr[3] = 7;
-	arr[4] = 3;
-	x=filter(arr,length,4,&result);
-	assert(x==2);
-	assert(result[0] == 6);
-	assert(result[1] == 7);
-	free(arr);
-}
-
-void test_filter_arr_of_different_values_with_threshold_bigger_than_all_numbers(){
-	int *arr,x,length=5,*result;
-	arr = (int*)malloc(length*sizeof(int));
-	arr[0] = 6;
-	arr[1] = 1;
-	arr[2] = -9;
-	arr[3] = 7;
-	arr[4] = 3;
-	x=filter(arr,length,10,&result);
-	assert(x==0);
-	free(arr);
-}
-
-void test_filter_arr_of_different_values_with_threshold_smaller_than_all_numbers(){
-	int *arr,x,length=5,*result;
-	arr = (int*)malloc(length*sizeof(int));
-	arr[0] = 6;
-	arr[1] = 1;
-	arr[2] = -9;
-	arr[3] = 7;
-	arr[4] = 3;
-	x=filter(arr,length,-40,&result);
-	assert(x==5);
-	assert(result[0] == 6);
-	assert(result[1] == 1);
-	assert(result[2] == -9);
-	assert(result[3] == 7);
-	assert(result[4] == 3);
-	free(arr);
-}
-
 void test_createReverse_arr_of_size_4() {
 	int *arr,x,*result;
 	arr = (int*)malloc(4*sizeof(int));
