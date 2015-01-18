@@ -28,3 +28,4 @@ int add(int,int);
 char largeChar(char,char);
 char reduceChar(char*,int,char (*f)(char,char),char);
 int *StringlowerStringToUpperString(char**,int);
+int indexOfString(char **,char **);

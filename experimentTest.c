@@ -643,3 +643,9 @@ void test_jsMapStrig_returns_result_array(){
 	assert(strcmp(output[1],w[1])==0);
 }
 
+void test_indexOfString_returns_starting_position_of_a_substring_if_it_is_present_in_the_string() {
+	char *str[] = {"prasenjit"},*subStr[] = {"sen"};
+	int expected = 4,actual;
+	actual = indexOfString(str,subStr);
+	assertEqual(expected,actual);
+}

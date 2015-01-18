@@ -132,7 +132,7 @@ int forEachChar(char **arr,char (*f)(int a),int length) {
 
 int jsFilterInt(int *arr, int length, int (*predicate)(int,int), int **result,int threshold) {
 	int i,count=0;
-	*result = (int *)malloc(0*sizeof(int));
+	*result = (int *)0;
 	for(i = 0;i < length;i++) {
 		if((*predicate)(arr[i],threshold)){
 			count++;
@@ -145,7 +145,7 @@ int jsFilterInt(int *arr, int length, int (*predicate)(int,int), int **result,in
 
 int jsFilterChar(char *arr, int length, int (*f)(char,char), char **result,char threshold) {
 	int i,count=0;
-	*result = (int *)malloc(0*sizeof(char));
+	*result = (int *)0;
 	for(i = 0;i < length;i++) {
 		if((*predicate)(arr[i],threshold)){
 			count++;
@@ -154,7 +154,6 @@ int jsFilterChar(char *arr, int length, int (*f)(char,char), char **result,char 
 		}
 	}
 	return (length<=0 || count<=0) ? 0 : count;
-
 }
 
 
@@ -222,7 +221,23 @@ int indexOf(char *string,char c){
 	return position;
 }
 
-
+int indexOfString(char **string,char **substring){
+	int position = -1,i,substrLen=0,flag = 1,j;
+	for(i = 0;substring[0][i] != '\0';i++){
+		substrLen++;
+	}
+	for(i = 0;string[0][i] != '\0';i++) {
+		if(string[0][i] == substring[0][0]){
+			position = i;
+			for(j = 0;j<substrLen;j++){
+				(substring[0][j]!=string[0][i+j]) && (flag = 0);
+			}
+			if(flag == 1)
+				return position+1;
+		}
+	}
+	return position;
+}
 
 
 
