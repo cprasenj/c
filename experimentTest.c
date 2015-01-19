@@ -645,7 +645,68 @@ void test_jsMapStrig_returns_result_array(){
 
 void test_indexOfString_returns_starting_position_of_a_substring_if_it_is_present_in_the_string() {
 	char *str[] = {"prasenjit"},*subStr[] = {"sen"};
-	int expected = 4,actual;
+	int expected = 3,actual;
 	actual = indexOfString(str,subStr);
 	assertEqual(expected,actual);
 }
+
+void test_jsFilterStrig_returns_result_array(){
+	char *a[] = {"prasenjit","chakraborty","orange","onion","okta"},**output,*w[]={"orange","onion","okta"};
+	output = jsFilterStrig(a,5,isVowel);
+	printf("%s%s\n",output[0],w[0]);
+	assert(strcmp(output[0],w[0])==0);
+	// assert(strcmp(output[1],w[1])==0);
+	// assert(strcmp(output[2],w[2])==0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// char **mapString(char **array, int array_length, char *(*function_ptr)(char *,int, char **)){
+// 	int counter;
+// 	char **resultArray;
+// 	if(array_length == 0)
+// 		return 0;
+// 	resultArray = (char **)malloc((sizeof(char))*array_length);
+	
+// 	for(counter = 0; counter < array_length; counter++){
+// 		resultArray[counter] = (*function_ptr)(array[counter],counter, array);
+// 		printf("++++++++++++ %s -- %d\n", resultArray[counter],counter);
+// 	}
+// 	printf("\n in lib %s----%p",resultArray[0],resultArray[0] );
+// 	return resultArray;
+// }
+
+// char * toLowerCase (char *string, int index, char **string_array) {
+// 	int i;
+// 	char * temp = (char*)malloc(sizeof(char) * strlen(string));
+// 	for(i = 0; i < strlen(string); i++){
+// 		temp[i] = tolower(string[i]);
+// 	}
+// 	temp[i] = '\0';
+// 	return temp;
+// }
+
+// void test_mapString_is_performed_for_5_array_elements () {
+//  	char *charArray[5] = {"Hello","GUYS","You","are","bad"};
+//  	int array_length = 5;
+//  	char *(*p)(char*, int, char **) = &toLowerCase;
+//  	char **mapFunction = mapString(charArray, array_length, p);
+//  	// printf("\n%s----------%p\n",mapFunction[0],mapFunction[0] );
+//  	assertEqual(strcmp(mapFunction[0], "hello"),0);
+//  	assertEqual(strcmp(mapFunction[1], "guys"),0);
+//  	assertEqual(strcmp(mapFunction[2], "you"),0);
+//  	assertEqual(strcmp(mapFunction[3], "are"),0);
+//  	assertEqual(strcmp(mapFunction[4], "bad"),0);
+// }
+
+

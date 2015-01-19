@@ -29,3 +29,5 @@ char largeChar(char,char);
 char reduceChar(char*,int,char (*f)(char,char),char);
 int *StringlowerStringToUpperString(char**,int);
 int indexOfString(char **,char **);
+char **jsFilterStrig(char **,int,int (*f)(char));
+int isVowel(char);
