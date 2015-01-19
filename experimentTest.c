@@ -655,8 +655,7 @@ void test_jsFilterStrig_returns_result_array(){
 	output = jsFilterStrig(a,5,isVowel);
 	printf("%s%s\n",output[0],w[0]);
 	assert(strcmp(output[0],w[0])==0);
-	// assert(strcmp(output[1],w[1])==0);
-	// assert(strcmp(output[2],w[2])==0);
+	assert(strcmp(output[1],w[1])==0);
 }
 
 

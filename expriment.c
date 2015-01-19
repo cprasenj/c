@@ -3,6 +3,9 @@
 #include <math.h>
 #include <string.h>
 
+typedef char* string;
+typedef char** string_arr; 
+
 void myFor(int round,int (*f)(int e1,int e2),int val1){
 	int i;
 	for(i = 0;i < round;i++){
@@ -84,7 +87,7 @@ int primeInRange(int start,int end,int **result) {
 	return (start<0 || end<0 || range<0) ? 0 : count;
 }
 
-int compareString(char *st1,char *st2) {
+int compareString(string st1,string st2) {
 	int len1,len2,i,limit;
 	len1 = strlen(st1),len2 = strlen(st2);
 	limit = ((len1-len2)>0) ? len1 : len2;
@@ -160,9 +163,9 @@ int jsFilterChar(char *arr, int length, int (*f)(char,char), char **result,char 
 	return (length<=0 || count<=0) ? 0 : count;
 }
 
-char **jsFilterStrig(char **arr,int length,int (*f)(char)) {
+string_arr jsFilterStrig(string_arr arr,int length,int (*f)(char)) {
 	int i,j,count = -1;
-	char **str;
+	string_arr str;
 	str = (char*)0;
 	for(i = 0;i < length;i++) {
 		if(arr[i][0] == 'o') {
@@ -177,9 +180,9 @@ char **jsFilterStrig(char **arr,int length,int (*f)(char)) {
 	}
 	return str;
 }
-char **jsMapStrig(char **arr,int length,char (*f)(char)) {
+string_arr jsMapStrig(string_arr arr,int length,char (*f)(char)) {
 	int i,j;
-	char **str;
+	string_arr str;
 	str = (char*)malloc(length*sizeof(char*));
 	for(i=0;i<length;i++) {
 		str[i] = (char*)malloc(sizeof(char));
